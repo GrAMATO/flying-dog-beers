@@ -449,5 +449,12 @@ app.layout = html.Div([
         
     )
 
+@app.callback(
+    dash.dependencies.Output('p_prots', 'children'),
+    [dash.dependencies.Input('prots', 'value')])
+def update_output_fer(value):
+    return "Protéines : {}g".format(value)
+
+
 if __name__ == '__main__':
     app.run_server()
