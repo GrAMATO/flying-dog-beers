@@ -398,8 +398,8 @@ app.layout = html.Div([
                 step=5,
                 value=45,
                 marks={45:"45",15:"15",80:"80"}
-                )], style={'width': '27%',
-        'backgroundColor': 'rgb(22, 26, 40)', 'display': 'inline-block', 'vertical-align': 'bottom','color':'rgb(246, 185, 53)'}),
+                )], style={'width': '30%',
+        'backgroundColor': 'rgb(22, 26, 40)', 'display': 'inline-block', 'vertical-align': 'bottom','color':'rgb(246, 185, 53)','bottom':'0px'}),
     
         html.Div([
             html.H1("Régime Alimentaire", style={'color':'rgb(246, 185, 53)','position': 'absolute','top':'0px','right':'300px'}),
@@ -408,7 +408,7 @@ app.layout = html.Div([
             html.Div([
                 dcc.Graph(id="tbl_fig")],style={'maxHeight': '200px','overflow':'auto','position': 'absolute','top': '520px', 'right':'0px', 'width':'65%'})]
                 
-                ,style={'float': 'right','width': '60%','margin': '1000px'}),
+                ,style={'float': 'right','width': '60%','margin': '10px'}),
 
              
           ])
