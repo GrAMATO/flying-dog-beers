@@ -282,7 +282,7 @@ label2='ABV'
 
 url = 'https://raw.githubusercontent.com/GrAMATO/flying-dog-beers/master/Aliments.csv'
 
-data = pd.read_csv(url,sep=",")
+data = pd.read_csv(url,sep=";")
 
 ########### Initiate the app
 #external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
