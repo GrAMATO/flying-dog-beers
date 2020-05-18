@@ -271,7 +271,7 @@ def preparation_df(prots,lip,glu,kcal,fer,calc,fib,obj,regime):
 
 
 tabtitle='beer!'
-myheading='Flying Dog Beers'
+
 
 
 
@@ -394,7 +394,7 @@ app.layout = html.Div([
                 value=45,
                 marks={45:"45",15:"15",80:"80"}
                 )], style={'width': '30%',
-        'backgroundColor': 'rgb(22, 26, 40)', 'display': 'inline-block', 'vertical-align': 'bottom','color':'rgb(246, 185, 53)'}, 'height':'600px'),
+        'backgroundColor': 'rgb(22, 26, 40)', 'display': 'inline-block', 'vertical-align': 'bottom','color':'rgb(246, 185, 53)'}, 'height':'100%'),
     
         html.Div([
             html.H1("Régime Alimentaire", style={'color':'rgb(246, 185, 53)','position': 'absolute','top':'0px','right':'300px'}),
