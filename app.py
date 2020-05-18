@@ -278,12 +278,11 @@ tabtitle='beer!'
 myheading='Flying Dog Beers'
 label1='IBU'
 label2='ABV'
-sourceurl='https://www.flyingdog.com/beers/'
 
 
 url = 'https://raw.githubusercontent.com/GrAMATO/flying-dog-beers/master/Aliments.csv'
 
-df = pd.read_csv(url,sep=",")
+data = pd.read_csv(url,sep=",")
 
 ########### Initiate the app
 #external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
