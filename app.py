@@ -275,7 +275,7 @@ tabtitle='App_regime'
 
 
 
-url = 'https://raw.githubusercontent.com/GrAMATO/regimeapp/master/Aliments.csv'
+url = 'https://raw.githubusercontent.com/GrAMATO/flying-dog-beers/master/Aliments.csv'
 
 data = pd.read_csv(url,sep=";")
 
