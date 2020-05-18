@@ -6,12 +6,6 @@ import scipy.optimize as so
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
-import flask
-import os
-from random import randint
-
-import plotly.plotly as py
-from plotly.graph_objs import *
 
 ########### Define your variables
 beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
@@ -51,8 +45,8 @@ beer_fig = go.Figure(data=beer_data, layout=beer_layout)
 
 
 ########### Initiate the app
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+#external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__)
 server = app.server
 app.title=tabtitle
 
