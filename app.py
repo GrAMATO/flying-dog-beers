@@ -6,6 +6,13 @@ import scipy.optimize as so
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+import flask
+from dash.dependencies import Input, Output, State, Event
+import os
+from random import randint
+
+import plotly.plotly as py
+from plotly.graph_objs import *
 
 ########### Define your variables
 beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
