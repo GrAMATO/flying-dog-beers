@@ -541,6 +541,60 @@ def update_table(prots,lip,glu,kcal,fer,calc,fib,obj,regime):
     
     return tbl_recap
 
+@app.callback(
+    dash.dependencies.Output("bpt_fig", 'figure'),
+    [dash.dependencies.Input('prots', 'value'),
+    dash.dependencies.Input('lip', 'value'),
+    dash.dependencies.Input('glu', 'value'),
+    dash.dependencies.Input('kcal', 'value'),
+    dash.dependencies.Input('fer', 'value'),
+    dash.dependencies.Input('calc', 'value'),
+    dash.dependencies.Input('fib', 'value'),
+    dash.dependencies.Input('obj', 'value'),
+    dash.dependencies.Input('regime', 'value')])
+
+def update_graph(prots,lip,glu,kcal,fer,calc,fib,obj,regime):
+    
+    tbapp=preparation_df(prots,lip,glu,kcal,fer,calc,fib,obj,regime)
+    total = tbapp[1]
+    objectif = [prots,lip,glu,kcal,fer,calc,fib]
+    totalapport = [total[0], total[1], total[2], total[3], total[4], total[5], total[6]]
+    pourcentage = [x/y for x, y in zip(totalapport,objectif)]
+    pourcentage = [i*100 for i in pourcentage]
+    objminmax=minmaxfun_d(obj)
+    barnames = ['Proteines', 'Lipides', 'Glucides','Calories', 'Fer', 'Calcium','Fibres']
+    
+    fig_barplot = go.Figure(go.Bar(x=barnames, y=pourcentage,marker_color='rgb(246, 185, 53)' ))
+    
+    fig_barplot.update_layout(paper_bgcolor='rgba(0, 0, 0,0)',plot_bgcolor='rgb(35, 38, 53)',
+    margin=dict(
+        l=0,
+        r=0,
+        b=0,
+        t=0),yaxis=dict(
+        title='Objectifs (en %)',
+        titlefont_size=16,
+        tickfont_size=14,
+        color='rgb(246, 185, 53)'
+    ),xaxis=dict(color='rgb(246, 185, 53)'),shapes=[
+    
+        
+    dict(
+      type= 'line',
+      yref= 'y', y0= 100*objminmax[0], y1= 100*objminmax[0],
+      xref= 'paper', x0= 0, x1= 1,line=dict(
+                    color="Red")
+    ), 
+        dict(
+      type= 'line',
+      yref= 'y', y0= 100*objminmax[1], y1= 100*objminmax[1],
+      xref= 'paper', x0= 0, x1= 1,line=dict(
+                    color="Red")
+    )
+])
+    
+    
+    return fig_barplot
 
 if __name__ == '__main__':
     app.run_server()
