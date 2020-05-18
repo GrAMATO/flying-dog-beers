@@ -399,7 +399,7 @@ app.layout = html.Div([
                 value=45,
                 marks={45:"45",15:"15",80:"80"}
                 )], style={'width': '30%',
-        'backgroundColor': 'rgb(22, 26, 40)', 'display': 'inline-block', 'vertical-align': 'bottom','color':'rgb(246, 185, 53)','bottom':'0px'}),
+        'backgroundColor': 'rgb(22, 26, 40)', 'display': 'inline-block', 'vertical-align': 'bottom','color':'rgb(246, 185, 53)','margin': '10px'}),
     
         html.Div([
             html.H1("Régime Alimentaire", style={'color':'rgb(246, 185, 53)','position': 'absolute','top':'0px','right':'300px'}),
@@ -424,7 +424,6 @@ app.layout = html.Div([
   'height':'100%',
   'top':'0px',
   'left':'0px',
-  'bottom':'0px',
   'z-index':'1000'  
 }
         
