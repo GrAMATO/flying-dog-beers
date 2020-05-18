@@ -311,17 +311,143 @@ server = app.server
 app.title=tabtitle
 
 ########### Set up the layout
-app.layout = html.Div(children=[
-    html.H1(myheading),
-    dcc.Graph(
-        id='flyingdog',
-        figure=beer_fig
-    ),
-    html.A('Code on Github', href=githublink),
-    html.Br(),
-    html.A('Data Source', href=sourceurl),
-    ]
-)
+app.layout = html.Div([ 
+    
+    
+    html.Div([
+
+        html.Div([
+            html.P("Objectif :", style={'color':'rgb(246, 185, 53)'}),
+            dcc.Dropdown(
+                id='obj',
+                options=[
+                    {'label': 'Minimiser les dépenses uniquement', 'value': 'depenses'},
+                    {'label': 'Ne pas dépasser de 10% ses objectifs', 'value': 'Ne pas dépasser de 10% ses objectifs'},
+                    {'label': 'Atteindre ses objectifs à + ou - 10%', 'value': 'Atteindre ses objectifs à + ou - 10%'}],
+                value='depenses'
+            )
+        ],style={'width': '65%','display': 'inline-block'}), # style{} affecte des commandes CSS à l'objet 
+        
+
+        
+        
+        html.Div([
+            html.P("Régime :", style={'color':'rgb(246, 185, 53)'}),
+            
+            dcc.Dropdown(
+                id='regime',
+                options=[
+                    {'label': 'Omnivore', 'value': 'Omnivore'},
+                    {'label': 'Végétarien', 'value': 'Vegetarien'},
+                    {'label': 'Vegan', 'value': 'Vegan'},
+                    {'label': 'Sans lactose', 'value': 'Sans Lactose'}],
+                value='Omnivore'
+                )
+        ], style={'width': '34%','float': 'right','display': 'inline-block'}),
+        
+        ],style={'width': '30%','backgroundColor': 'rgb(22, 26, 40)','display': 'flex'}),
+        
+    
+        
+        
+  html.Div([            
+        
+        html.Div([
+            html.P(id = "p_prots"),
+            dcc.Slider(
+                id='prots',
+                min=40,
+                max=250,
+                step=5,
+                value=75,
+                marks={40:"40",75:"75",250:"250"}
+                ),
+            
+            html.P(id="p_lip"),
+            dcc.Slider(
+                id='lip',
+                min=30,
+                max=130,
+                step=5,
+                value=90,
+                marks={30:"30",90:"90",130:"130"}
+                ),
+
+            html.P(id="p_glu"),
+            dcc.Slider(
+                id='glu',
+                min=50,
+                max=300,
+                step=5,
+                value=225,
+                marks={50:"50",225:"225",300:"300"}
+                ),
+        
+            html.P(id="p_kcal"),
+            dcc.Slider(
+                id='kcal',
+                min=1500,
+                max=3000,
+                step=10,
+                value=2000,
+                marks={1500:"1500",2000:"2000",3000:"3000"}
+                ),
+            html.P(id="p_fer"),
+            dcc.Slider(
+                id='fer',
+                min=1,
+                max=15,
+                step=1,
+                value=9,
+                marks={1:"1",15:"15",9:"9"}
+                ),  
+            html.P(id="p_calc"),
+            dcc.Slider(
+                id='calc',
+                min=500,
+                max=1300,
+                step=50,
+                value=800,
+                marks={500:"500",800:"800",1300:"1300"}
+                ),
+            html.P(id="p_fib"),
+            dcc.Slider(
+                id='fib',
+                min=15,
+                max=80,
+                step=5,
+                value=45,
+                marks={45:"45",15:"15",80:"80"}
+                )], style={'width': '30%',
+        'backgroundColor': 'rgb(22, 26, 40)', 'display': 'inline-block', 'vertical-align': 'bottom','color':'rgb(246, 185, 53)'}),
+    
+        html.Div([
+            html.H1("Régime Alimentaire", style={'color':'rgb(246, 185, 53)','position': 'absolute','top':'0px','right':'300px'}),
+            html.Div([
+                dcc.Graph(id="bpt_fig")],style={'position': 'absolute','top': '60px','right':'0px', 'width':'65%'}),
+            html.Div([
+                dcc.Graph(id="tbl_fig")],style={'maxHeight': '200px','overflow':'auto','position': 'absolute','top': '520px', 'right':'0px', 'width':'65%'})]
+                
+                ,style={'float': 'right','width': '60%','margin': '0px'}),
+
+             
+          ])
+
+
+    
+            
+        ], style={
+  'verticalAlign':'middle',
+  'backgroundColor': 'rgb(35, 38, 53)',
+  'position':'fixed',
+  'width':'100%',
+  'height':'100%',
+  'top':'0px',
+  'left':'0px',  
+  'z-index':'1000'  
+}
+        
+    )
 
 if __name__ == '__main__':
     app.run_server()
