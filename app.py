@@ -341,7 +341,7 @@ app.layout = html.Div([
                 step=5,
                 value=75,
                 marks={40:"40",75:"75",250:"250"}
-                ),
+                ), style={'width': '34%','float': 'right','display': 'inline-block'},
             
             html.P(id="p_lip"),
             dcc.Slider(
