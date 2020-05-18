@@ -454,7 +454,41 @@ app.layout = html.Div([
     [dash.dependencies.Input('prots', 'value')])
 def update_output_fer(value):
     return "Protéines : {}g".format(value)
+@app.callback(
+    dash.dependencies.Output('p_lip', 'children'),
+    [dash.dependencies.Input('lip', 'value')])
+def update_output_fer(value):
+    return "Lipides : {}g".format(value)
 
+@app.callback(
+    dash.dependencies.Output('p_glu', 'children'),
+    [dash.dependencies.Input('glu', 'value')])
+def update_output_glu(value):
+    return "Glucides : {}g".format(value)
+
+@app.callback(
+    dash.dependencies.Output('p_kcal', 'children'),
+    [dash.dependencies.Input('kcal', 'value')])
+def update_output_kcals(value):
+    return "Kcals du repas : {} Kcal".format(value)
+
+@app.callback(
+    dash.dependencies.Output('p_fer', 'children'),
+    [dash.dependencies.Input('fer', 'value')])
+def update_output_fer(value):
+    return "Fer : {}mg".format(value)
+
+@app.callback(
+    dash.dependencies.Output('p_calc', 'children'),
+    [dash.dependencies.Input('calc', 'value')])
+def update_output_cal(value):
+    return "Calcium : {}mg".format(value)
+
+@app.callback(
+    dash.dependencies.Output('p_fib', 'children'),
+    [dash.dependencies.Input('fib', 'value')])
+def update_output_fib(value):
+    return "Fibres : {}g".format(value)
 
 if __name__ == '__main__':
     app.run_server()
