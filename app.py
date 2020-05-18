@@ -490,5 +490,57 @@ def update_output_cal(value):
 def update_output_fib(value):
     return "Fibres : {}g".format(value)
 
+@app.callback(
+    dash.dependencies.Output("tbl_fig", 'figure'),
+    [dash.dependencies.Input('prots', 'value'),
+    dash.dependencies.Input('lip', 'value'),
+    dash.dependencies.Input('glu', 'value'),
+    dash.dependencies.Input('kcal', 'value'),
+    dash.dependencies.Input('fer', 'value'),
+    dash.dependencies.Input('calc', 'value'),
+    dash.dependencies.Input('fib', 'value'),
+    dash.dependencies.Input('obj', 'value'),
+    dash.dependencies.Input('regime', 'value')
+    
+])
+
+
+
+def update_table(prots,lip,glu,kcal,fer,calc,fib,obj,regime):
+    """Permet de construire et de mettre automatiquement à jour un tableau récapitulatif du repas conseillé 
+    ainsi que de ses apports, la fonction prend en entrée la valeur des curseurs, puis utilise la fonction preparation_df
+    pour renvoyer un tableau dynamique récapitulatif. """
+    
+    tbapp=preparation_df(prots,lip,glu,kcal,fer,calc,fib,obj,regime)
+    dataframe = pd.DataFrame(tbapp[0])
+
+    rownames_df=list(dataframe.index.values)
+    dataframe["Produits"] = rownames_df
+    
+    cols_to_order = ["Produits"]
+    new_columns = cols_to_order + (dataframe.columns.drop(cols_to_order).tolist())
+    dataframe = dataframe[new_columns]
+    tbl_recap = go.Figure(data=[go.Table(
+    header=dict(values=list(dataframe.columns),
+                fill_color='rgb(17, 21, 35)',
+                line_color='rgb(17, 21, 35)',
+                align='left', font=dict(color='rgb(246, 185, 53)', size=11)),
+    cells=dict(values=list(dataframe.values.T),
+               fill_color='rgb(22, 26, 40)',
+               line_color='rgb(22, 26, 40)',
+               align='left', font=dict(color='white', size=11)),
+    )
+])
+    tbl_recap.update_layout(paper_bgcolor='rgba(0, 0, 0,0)',
+    plot_bgcolor='rgba(0, 0, 0,0)',
+    margin=dict(
+        l=0,
+        r=0,
+        b=0,
+        t=0))
+    
+    return tbl_recap
+
+
 if __name__ == '__main__':
     app.run_server()
