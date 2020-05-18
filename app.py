@@ -7,7 +7,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import flask
-from dash.dependencies import Input, Output, State, Event
 import os
 from random import randint
 
