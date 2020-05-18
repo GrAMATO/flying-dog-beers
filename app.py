@@ -270,7 +270,7 @@ def preparation_df(prots,lip,glu,kcal,fer,calc,fib,obj,regime):
 
 
 
-tabtitle='beer!'
+tabtitle='App_regime'
 
 
 
