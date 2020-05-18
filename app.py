@@ -398,7 +398,7 @@ app.layout = html.Div([
                 step=5,
                 value=45,
                 marks={45:"45",15:"15",80:"80"}
-                )], style={'width': '30%',
+                )], style={'width': '27%',
         'backgroundColor': 'rgb(22, 26, 40)', 'display': 'inline-block', 'vertical-align': 'bottom','color':'rgb(246, 185, 53)'}),
     
         html.Div([
@@ -408,7 +408,7 @@ app.layout = html.Div([
             html.Div([
                 dcc.Graph(id="tbl_fig")],style={'maxHeight': '200px','overflow':'auto','position': 'absolute','top': '520px', 'right':'0px', 'width':'65%'})]
                 
-                ,style={'float': 'right','width': '60%','margin': '100px'}),
+                ,style={'float': 'right','width': '60%','margin': '1000px'}),
 
              
           ])
@@ -423,7 +423,8 @@ app.layout = html.Div([
   'width':'100%',
   'height':'100%',
   'top':'0px',
-  'left':'0px',  
+  'left':'0px',
+  'bottom':'0px',
   'z-index':'1000'  
 }
         
