@@ -408,7 +408,7 @@ app.layout = html.Div([
             html.Div([
                 dcc.Graph(id="tbl_fig")],style={'maxHeight': '200px','overflow':'auto','position': 'absolute','top': '520px', 'right':'0px', 'width':'65%'})]
                 
-                ,style={'float': 'right','width': '60%','margin': '0px'}),
+                ,style={'float': 'right','width': '60%','margin': '100px'}),
 
              
           ])
