@@ -361,11 +361,11 @@ app.layout = html.Div([
             html.P(id="p_kcal"),
             dcc.Slider(
                 id='kcal',
-                min=1500,
+                min=400,
                 max=3000,
                 step=10,
-                value=2000,
-                marks={1500:"1500",2000:"2000",3000:"3000"}
+                value=1800,
+                marks={400:"400",1800:"1800",3000:"3000"}
                 ),
             html.P(id="p_fer"),
             dcc.Slider(
